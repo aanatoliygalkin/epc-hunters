@@ -91,6 +91,7 @@ body {
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(70, 70, 70, 0.3) 16%, rgba(255, 255, 255, 0.3) 100%),
 		url(../img/bg-m.jpg) center/cover no-repeat;
 	background-blend-mode: multiply;
+	background-repeat: no-repeat;
 }
 
 .land img {
@@ -114,6 +115,7 @@ h1 {
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px 15px 0;
+	overflow: hidden;
 }
 
 .burger {
