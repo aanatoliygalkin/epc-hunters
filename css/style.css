@@ -87,11 +87,11 @@ h1 {
 	margin-bottom: 30px;
 }
 
-body {
+.wrapper {
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(70, 70, 70, 0.3) 16%, rgba(255, 255, 255, 0.3) 100%),
 		url(../img/bg-m.jpg) center/cover no-repeat;
 	background-blend-mode: multiply;
-	background-repeat: no-repeat;
+	max-height: 896px;
 }
 
 .land img {
@@ -554,7 +554,7 @@ h1 {
 		pointer-events: none;
 	}
 
-	body {
+	.wrapper {
 		background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(70, 70, 70, 0.3) 16%, rgba(255, 255, 255, 0.3) 100%),
 			url(../img/bg-d.jpg) center/cover no-repeat;
 		background-blend-mode: multiply;
@@ -697,7 +697,7 @@ h1 {
 }
 
 @media (min-width: 2000px) {
-	body {
+	.wrapper {
 		background: url(../img/bg-d.jpg) center/cover no-repeat;
 		background-blend-mode: multiply;
 	}
