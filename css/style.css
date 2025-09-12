@@ -306,10 +306,10 @@ h1 {
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 50vh;
+	height: max-content;
 	background-color: #fff;
 	color: #000;
-	transform: translateY(-100%);
+	transform: translateY(-200%);
 	transition: transform 0.4s ease-in-out;
 	z-index: 99;
 	padding: 40px 26px 40px 40px;
