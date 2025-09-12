@@ -90,7 +90,6 @@ h1 {
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(70, 70, 70, 0.3) 16%, rgba(255, 255, 255, 0.3) 100%),
 		url(../img/bg-m.jpg) center/cover no-repeat;
 	background-blend-mode: multiply;
-	max-height: 896px;
 }
 
 .logo {
