@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slides.style.transition = "transform 0.4s ease-out";
     currentIndex = index;
     startTranslate = -currentIndex * slideWidth;
-    currentTranslate = startTranslate; // Синхронизируем, чтобы не было скачков
+    currentTranslate = startTranslate; 
   };
 
   const getPositionX = (event) => {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (event.touches && event.touches.length > 0) {
       pos = event.touches[0].clientX;
     } else {
-      return 0; // fallback
+      return 0; 
     }
     return isNaN(pos) ? 0 : pos;
   };
@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const touchStart = (e) => {
-    // Игнорируем, если уже тащим
     if (isDragging) return;
 
     isDragging = true;
@@ -103,20 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slides.style.transition = "none";
     slides.style.cursor = "grabbing";
-    slides.style.pointerEvents = "none"; // Блокируем клики во время драга
+    slides.style.pointerEvents = "none"; 
 
-    // 👇 Добавляем обработчики ДВИЖЕНИЯ только сейчас
     document.addEventListener("mousemove", touchMove);
     document.addEventListener("mouseup", touchEnd);
     document.addEventListener("touchmove", touchMove, { passive: false });
     document.addEventListener("touchend", touchEnd);
 
     animationID = requestAnimationFrame(animation);
-    e.preventDefault(); // предотвращаем выделение текста и др.
+    e.preventDefault(); 
   };
 
   const touchMove = (e) => {
-    if (!isDragging) return; // двойная защита
+    if (!isDragging) return; 
 
     const pos = getPositionX(e);
     if (isNaN(pos)) return;
@@ -128,12 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const touchEnd = () => {
-    if (!isDragging) return; // двойная защита
+    if (!isDragging) return; 
 
     cancelAnimationFrame(animationID);
     isDragging = false;
 
-    // 👇 Удаляем временные обработчики
     document.removeEventListener("mousemove", touchMove);
     document.removeEventListener("mouseup", touchEnd);
     document.removeEventListener("touchmove", touchMove);
@@ -155,15 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (newIndex !== currentIndex) {
       showSlide(newIndex);
     } else {
-      showSlide(currentIndex); // анимированно возвращаем на место
+      showSlide(currentIndex); 
     }
   };
 
-  // 👇 Основные обработчики — только для начала драга
   slides.addEventListener("mousedown", touchStart);
   slides.addEventListener("touchstart", touchStart);
 
-  // Кнопки
   prevBtn.addEventListener("click", (e) => {
     e.preventDefault();
     showSlide(currentIndex - 1);
@@ -173,10 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentIndex + 1);
   });
 
-  // Стили
   slides.style.userSelect = "none";
   slides.style.cursor = "grab";
 
-  // Инициализация
   showSlide(0);
 });
